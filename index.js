@@ -35,10 +35,11 @@ function addNumbers(num1, num2) {
  * the returned value should look like: 'Goodbye, Andy. Have a great day.'
  * 
 */
-function sayGoodbye(/* code here */) {
+function sayGoodbye(name) {
   /* code here */
+  return `Goodbye, ${name}. Have a great day.`;
 }
-
+sayGoodbye("Andy");
 /**
  * ### Challenge `temperatureCtoF`
  * 
@@ -53,9 +54,11 @@ function sayGoodbye(/* code here */) {
  * Hint 1: The formula for converting celsius to fahrenheit is t*9/5 + 32 where t is the temperature in celsius.
  * Hint 2: There is a very easy way to round numbers in JS. Do a google search to find out how. 
 */
-function temperatureCtoF(/* code here */) {
+function temperatureCtoF(celsius) {
   /* code here */
+  return Math.round((celsius * 9) / 5 + 32);
 }
+temperatureCtoF(24);
 
 /**
  * ### Challenge `temperatureInF`
@@ -74,10 +77,15 @@ function temperatureCtoF(/* code here */) {
  * 
  * Hint: You can call your `temperatureCtoF` function from inside `temperatureInF`.
 */
-function temperatureInF(/* code here */) {
+function temperatureInF(temp, unit) {
   /* code here */
+  if (unit === "C") {
+    return temperatureCtoF(temp) + "F";
+  } else {
+    return temp + unit;
+  }
 }
-
+temperatureInF(88, "F");
 
 /**
  * ### Challenge `makePersonObject`
@@ -95,9 +103,16 @@ function temperatureInF(/* code here */) {
  *   email: "leia@leia.com",
  * }
 */
-function makePersonObject(/* code here */) {
+function makePersonObject(id, name, email) {
   /* code here */
+  const Person = {
+    id: id,
+    name: name,
+    email: email
+  };
+  return Person;
 }
+makePersonObject(5, "Leia", "leia@leia.com");
 
 /**
  * ### Challenge `getName`
@@ -112,9 +127,12 @@ function makePersonObject(/* code here */) {
  * passing { id: 1, name: 'Leia', email: 'leia@leia.com` } as the argument,
  * the returned value should look like `Hello, my name is Leia`.
 */
-function getName(/* code here */) {
+function getName(man) {
   /* code here */
+
+  return `Hello, my name is ${man.name}`;
 }
+getName({ id: 1, name: "Leia", email: "leia@leia.com" });
 
 
 /**
